@@ -15,6 +15,5 @@ public class Ejercicio1Test {
 	void testTransformar(int input, int expected) {
 		Ejercicio1 prueba = new Ejercicio1();
 		assertEquals(expected, prueba.transformar(input));
-		// assertTrue(c.transformar(input)==expected);
 	}
 }
