@@ -11,7 +11,7 @@ public class Ferry {
 	public double pesTotVeh;
 	public ArrayList<Vehiculo> vehiculos;
 	
-	public Ferry (int maxNumPas, double maxPeso, int maxVeh) {
+	public Ferry(int maxNumPas, double maxPeso, int maxVeh) {
 		this.maxNumPas = maxNumPas;
 		this.maxPeso = maxPeso;
 		this.maxVeh = maxVeh;
@@ -21,15 +21,15 @@ public class Ferry {
 		this.vehiculos = new ArrayList<Vehiculo>();
 	}
 	
-	public boolean embarcarVehiculo (Vehiculo v) {
+	public boolean embarcarVehiculo(Vehiculo v) {
 		// Embarca un vehículo añadiéndolo a la lista
-		this.numTotPas+= v.numPasajeros;
+		this.numTotPas += v.numPasajeros;
 		this.numTotVeh++;
-		this.pesTotVeh+= v.pesoCarga;
-		if(superadoMaximoVehiculos()||superadoMaximoPeso()||numTotPas>maxNumPas) {
-			this.numTotPas-= v.numPasajeros;
+		this.pesTotVeh += v.pesoCarga;
+		if(superadoMaximoVehiculos()||superadoMaximoPeso() || numTotPas>maxNumPas) {
+			this.numTotPas -= v.numPasajeros;
 			this.numTotVeh--;
-			this.pesTotVeh-= v.pesoCarga;
+			this.pesTotVeh -= v.pesoCarga;
 			return false;
 		}
 		this.vehiculos.add(v);
@@ -43,17 +43,17 @@ public class Ferry {
 	
 	public boolean vacio() {
 		// verdadero si no hay ningún vehículo
-		return totalVehiculos()==0;
+		return totalVehiculos() == 0;
 	}
 	
 	public boolean superadoMaximoVehiculos() {
 		 // verdadero si el número total de los vehículos supera el máximo
-		return numTotVeh>maxVeh;
+		return numTotVeh > maxVeh;
 	}
 	
 	public boolean superadoMaximoPeso() {
 		// verdadero si el peso total de los vehículos supera el máximo
-		return pesTotVeh>maxPeso;
+		return pesTotVeh > maxPeso;
 	}
 	 
 }
